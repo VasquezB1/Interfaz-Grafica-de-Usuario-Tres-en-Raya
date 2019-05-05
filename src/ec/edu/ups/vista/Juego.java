@@ -18,9 +18,10 @@ public class Juego extends javax.swing.JFrame {
      */
     public Juego() {
         initComponents();
+        ingresar();
         //Lineas Diagonales        
         j0.setBackground(Color.green);
-        j00.setBackground(Color.yellow);
+        j00.setBackground(Color.green);
 
         //lineas horizontales
         jPanel7.setVisible(false);
@@ -99,7 +100,7 @@ public class Juego extends javax.swing.JFrame {
 
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/raya 11.png"))); // NOI18N
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 270, 230));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 270, 220));
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -193,7 +194,7 @@ public class Juego extends javax.swing.JFrame {
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/raya 22.png"))); // NOI18N
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 400, 230));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 370, 210));
 
         jButton1.setBackground(new java.awt.Color(153, 153, 153));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -436,11 +437,11 @@ public class Juego extends javax.swing.JFrame {
     
     public void opcion(){
         if(con.getTurno()==1){
-            j0.setBackground(Color.blue);
-            j00.setBackground(Color.pink);
-        }if(con.getTurno() ==0){
             j0.setBackground(Color.green);
-            j00.setBackground(Color.red);
+            j00.setBackground(Color.white);
+        }if(con.getTurno() ==0){
+            j0.setBackground(Color.white);
+            j00.setBackground(Color.green);
         }            
     }
     //Metodo para crear un nuevo juego
@@ -496,7 +497,7 @@ public class Juego extends javax.swing.JFrame {
         //horizontal
         con.rayar(matriz, jPanel7, 1, 0, 2);
         //vertical
-        con.rayar(matriz, jPanel4, 6, 0, 2);
+        con.rayar(matriz, jPanel2, 6, 0, 2);
         //diagonal
         con.rayar(matriz, jPanel9, 8, 0, 2);
         
@@ -516,7 +517,7 @@ public class Juego extends javax.swing.JFrame {
         //horizontal
         con.rayar(matriz, jPanel7, 1, 0, 0);
         //vertical
-        con.rayar(matriz, jPanel2, 4, 0, 0);
+        con.rayar(matriz, jPanel4, 4, 0, 0);
         
         if(con.jugar(jButton1, 0, 0, matriz, jLabel7, jLabel8)==1){
             
@@ -542,7 +543,7 @@ public class Juego extends javax.swing.JFrame {
         //horizontal
         con.rayar(matriz, jPanel8, 2, 1, 0);
         //vertical
-        con.rayar(matriz, jPanel2, 4, 1, 0);
+        con.rayar(matriz, jPanel4, 4, 1, 0);
         
         if(con.jugar(jButton4, 1, 0, matriz, jLabel7, jLabel8)==1){
              
@@ -582,7 +583,7 @@ public class Juego extends javax.swing.JFrame {
         // TODO add your handling code here:
         con.rayar(matriz, jPanel9, 3, 2, 0);
         //vertical
-        con.rayar(matriz, jPanel2, 4, 2, 0);
+        con.rayar(matriz, jPanel4, 4, 2, 0);
         //diagonal
         con.rayar(matriz, jLabel9, 8, 2, 0);
         
@@ -612,7 +613,7 @@ public class Juego extends javax.swing.JFrame {
         //horizontal
         con.rayar(matriz, jPanel9, 3, 2, 2);
         //vertical
-        con.rayar(matriz, jPanel4, 6, 2, 2);
+        con.rayar(matriz, jPanel2, 6, 2, 2);
         
         if(con.jugar(jButton9, 2, 2, matriz, jLabel7, jLabel8)==1){
              
