@@ -6,6 +6,13 @@
 package ec.edu.ups.vista;
 
 import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -16,8 +23,11 @@ public class Juego extends javax.swing.JFrame {
     /**
      * Creates new form Juego
      */
-    public Juego() {
+    public Juego() throws IOException {
         initComponents();
+        this.setTitle("Juego Tres en Raya");
+        //Declaramos un icono nuevo para la calculadora
+        setIconImage(new ImageIcon(("src/ec/edu/ups/imagenes/tresenrayaicno.png")).getImage());
         ingresar();
         //Lineas Diagonales        
         j0.setBackground(Color.green);
@@ -82,6 +92,7 @@ public class Juego extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
 
         dia3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/raya 1.png"))); // NOI18N
         dia3.setText("  ");
@@ -415,6 +426,9 @@ public class Juego extends javax.swing.JFrame {
 
         getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, -1, -1));
 
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/logo.png"))); // NOI18N
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, 190, 240));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -422,7 +436,6 @@ public class Juego extends javax.swing.JFrame {
     private int matriz[][] = new int[3][3];
 
     //Creamos un metodo para ingresar los metodos
-    
     public void ingresar() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
@@ -430,52 +443,52 @@ public class Juego extends javax.swing.JFrame {
             }
         }
     }
-    
-    
-    Desarrollo con  = new Desarrollo(0, 0, 0);
+
+    Desarrollo con = new Desarrollo(0, 0, 0);
     //Metodo para desarrollar la opcion a elegir
-    
-    public void opcion(){
-        if(con.getTurno()==1){
+
+    public void opcion() {
+        if (con.getTurno() == 1) {
             j0.setBackground(Color.green);
             j00.setBackground(Color.white);
-        }if(con.getTurno() ==0){
+        }
+        if (con.getTurno() == 0) {
             j0.setBackground(Color.white);
             j00.setBackground(Color.green);
-        }            
+        }
     }
     //Metodo para crear un nuevo juego
-    
-     public void nuevo(){
-         ingresar();
-         //Botones 1 a 9
-         jButton1.setText("");
-         jButton1.setEnabled(true);
-         
-         jButton2.setText("");
-         jButton2.setEnabled(true);
-         
-         jButton3.setText("");
-         jButton3.setEnabled(true);
-         
-         jButton4.setText("");
-         jButton4.setEnabled(true);
-         
-         jButton5.setText("");
-         jButton5.setEnabled(true);
-         
-         jButton6.setText("");
-         jButton6.setEnabled(true);
-         
-         jButton7.setText("");
-         jButton7.setEnabled(true);
-         
-         jButton8.setText("");
-         jButton8.setEnabled(true);
-         
-         jButton9.setText("");
-         jButton9.setEnabled(true);
-         
+
+    public void nuevo() {
+        ingresar();
+        //Botones 1 a 9
+        jButton1.setText("");
+        jButton1.setEnabled(true);
+
+        jButton2.setText("");
+        jButton2.setEnabled(true);
+
+        jButton3.setText("");
+        jButton3.setEnabled(true);
+
+        jButton4.setText("");
+        jButton4.setEnabled(true);
+
+        jButton5.setText("");
+        jButton5.setEnabled(true);
+
+        jButton6.setText("");
+        jButton6.setEnabled(true);
+
+        jButton7.setText("");
+        jButton7.setEnabled(true);
+
+        jButton8.setText("");
+        jButton8.setEnabled(true);
+
+        jButton9.setText("");
+        jButton9.setEnabled(true);
+
         //lineas horizontales 
         jPanel7.setVisible(false);
         jPanel8.setVisible(false);
@@ -484,25 +497,25 @@ public class Juego extends javax.swing.JFrame {
         jPanel2.setVisible(false);
         jPanel3.setVisible(false);
         jPanel4.setVisible(false);
-       //lineas diagonales
+        //lineas diagonales
         jLabel10.setVisible(false);
-        jLabel9.setVisible(false);      
-                  
-     }
-        
-    
+        jLabel9.setVisible(false);
+
+    }
+
+
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-         opcion();
+        opcion();
         //horizontal
         con.rayar(matriz, jPanel7, 1, 0, 2);
         //vertical
         con.rayar(matriz, jPanel2, 6, 0, 2);
         //diagonal
         con.rayar(matriz, jPanel9, 8, 0, 2);
-        
-        if(con.jugar(jButton3, 0, 2, matriz, jLabel7, jLabel8)==1){         
-        }  
+
+        if (con.jugar(jButton3, 0, 2, matriz, jLabel7, jLabel8) == 1) {
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
@@ -518,22 +531,22 @@ public class Juego extends javax.swing.JFrame {
         con.rayar(matriz, jPanel7, 1, 0, 0);
         //vertical
         con.rayar(matriz, jPanel4, 4, 0, 0);
-        
-        if(con.jugar(jButton1, 0, 0, matriz, jLabel7, jLabel8)==1){
-            
-                }       
+
+        if (con.jugar(jButton1, 0, 0, matriz, jLabel7, jLabel8) == 1) {
+
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-         opcion();
+        opcion();
         //horizontal
         con.rayar(matriz, jPanel7, 1, 0, 1);
         //vertical
         con.rayar(matriz, jPanel3, 5, 0, 1);
-        
-        if(con.jugar(jButton2, 0, 1, matriz, jLabel7, jLabel8)==1){
-             
+
+        if (con.jugar(jButton2, 0, 1, matriz, jLabel7, jLabel8) == 1) {
+
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -544,15 +557,15 @@ public class Juego extends javax.swing.JFrame {
         con.rayar(matriz, jPanel8, 2, 1, 0);
         //vertical
         con.rayar(matriz, jPanel4, 4, 1, 0);
-        
-        if(con.jugar(jButton4, 1, 0, matriz, jLabel7, jLabel8)==1){
-             
+
+        if (con.jugar(jButton4, 1, 0, matriz, jLabel7, jLabel8) == 1) {
+
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-         opcion();        
+        opcion();
         //diagonal
         con.rayar(matriz, jLabel10, 7, 1, 1);
         con.rayar(matriz, jLabel9, 8, 1, 1);
@@ -560,9 +573,9 @@ public class Juego extends javax.swing.JFrame {
         con.rayar(matriz, jPanel8, 2, 1, 1);
         //vertical
         con.rayar(matriz, jPanel3, 5, 1, 1);
-        
-        if(con.jugar(jButton5, 1, 1, matriz, jLabel7, jLabel8)==1){
-             
+
+        if (con.jugar(jButton5, 1, 1, matriz, jLabel7, jLabel8) == 1) {
+
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -573,10 +586,10 @@ public class Juego extends javax.swing.JFrame {
         con.rayar(matriz, jPanel8, 2, 1, 2);
         //vertical
         con.rayar(matriz, jPanel4, 6, 1, 2);
-        
-        if(con.jugar(jButton6, 1, 02, matriz, jLabel7, jLabel8)==1){
-             
-        }  
+
+        if (con.jugar(jButton6, 1, 02, matriz, jLabel7, jLabel8) == 1) {
+
+        }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -586,37 +599,37 @@ public class Juego extends javax.swing.JFrame {
         con.rayar(matriz, jPanel4, 4, 2, 0);
         //diagonal
         con.rayar(matriz, jLabel9, 8, 2, 0);
-        
-        if(con.jugar(jButton7, 2, 0, matriz, jLabel7, jLabel8)==1){
-             
+
+        if (con.jugar(jButton7, 2, 0, matriz, jLabel7, jLabel8) == 1) {
+
         }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-          opcion();
+        opcion();
         //horizontal
         con.rayar(matriz, jPanel9, 3, 2, 1);
         //vertical
         con.rayar(matriz, jPanel3, 5, 2, 1);
-        
-        if(con.jugar(jButton8, 2, 1, matriz, jLabel7, jLabel8)==1){
-             
+
+        if (con.jugar(jButton8, 2, 1, matriz, jLabel7, jLabel8) == 1) {
+
         }
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
-         opcion();
+        opcion();
         //diagonal
         con.rayar(matriz, jLabel10, 7, 2, 2);
         //horizontal
         con.rayar(matriz, jPanel9, 3, 2, 2);
         //vertical
         con.rayar(matriz, jPanel2, 6, 2, 2);
-        
-        if(con.jugar(jButton9, 2, 2, matriz, jLabel7, jLabel8)==1){
-             
+
+        if (con.jugar(jButton9, 2, 2, matriz, jLabel7, jLabel8) == 1) {
+
         }
     }//GEN-LAST:event_jButton9ActionPerformed
 
@@ -653,10 +666,15 @@ public class Juego extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Juego().setVisible(true);
+        java.awt.EventQueue.invokeLater(new Runnable() {          
+          public void run() {
+                     try {
+                    new Juego().setVisible(true);
             }
+            catch (IOException ex) {
+                    Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+            }
+ }
         });
     }
 
@@ -676,6 +694,7 @@ public class Juego extends javax.swing.JFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
