@@ -6,6 +6,7 @@
 package ec.edu.ups.vista;
 
 import java.awt.Color;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 /**
@@ -56,16 +57,15 @@ public class Desarrollo {
     public void intercambiar() {
         if (getTurno() == 0) {
             setTurno(1);
-        } else {
-            setTurno(0);
         }
     }
     
     public int posibilidad(int matriz[][]) {
+       
         //maneras de ganar horizontal
-        //ho11
         if (matriz[0][0] == matriz[0][1] & matriz[0][0] == matriz[0][2]) {
-            return 1;
+            return 1; 
+            
         }
         //hor2
         if (matriz[1][0] == matriz[1][1] & matriz[1][0] == matriz[1][2]) {
@@ -77,25 +77,22 @@ public class Desarrollo {
         }
 
         //maneras de ganar vertical
-        //ver1
         if (matriz[0][0] == matriz[1][0] & matriz[0][0] == matriz[2][0]) {
             return 4;
         }
-        //ver2
+      
         if (matriz[0][1] == matriz[1][1] & matriz[0][1] == matriz[2][1]) {
             return 5;
         }
-        //ver3
+    
         if (matriz[0][2] == matriz[1][2] & matriz[0][2] == matriz[2][2]) {
             return 6;
         }
 
         //maneras de ganar diagonal
-        //diagonal 1
         if (matriz[0][0] == matriz[1][1] & matriz[0][0] == matriz[2][2]) {
             return 7;
         }
-        //diagonal 2
         if (matriz[0][2] == matriz[1][1] & matriz[0][2] == matriz[2][0]) {
             return 8;
         }
@@ -109,12 +106,9 @@ public class Desarrollo {
         if (getTurno() == 0) {
             n = "X";
             btt.setForeground(Color.red);
-        }else{
-            n = "O";
-            btt.setForeground(Color.blue);
         }
         
-        intercambiar();
+       // intercambiar();
         btt.setText(n);
         btt.setEnabled(false);
         
@@ -125,10 +119,10 @@ public class Desarrollo {
                 jX.setText(String.valueOf(getpX()));
             }
             
-            if(getTurno()==0){
+            /*if(getTurno()==0){
                 setpO(getpO()+1);
                 jO.setText(String.valueOf(getpO()));
-            }
+            }*/
             return 1;
         }
         return 0;
@@ -146,7 +140,8 @@ public class Desarrollo {
             p.setVisible(true);
         }
     }
-    
+  
 }
+
 
 

@@ -111,7 +111,7 @@ public class Juego extends javax.swing.JFrame {
 
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/raya 11.png"))); // NOI18N
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 270, 220));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 250, 220));
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -516,6 +516,7 @@ public class Juego extends javax.swing.JFrame {
 
         if (con.jugar(jButton3, 0, 2, matriz, jLabel7, jLabel8) == 1) {
         }
+        computadora();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
@@ -524,6 +525,7 @@ public class Juego extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+
         opcion();
         //diagonal
         con.rayar(matriz, jLabel10, 7, 0, 0);
@@ -535,6 +537,8 @@ public class Juego extends javax.swing.JFrame {
         if (con.jugar(jButton1, 0, 0, matriz, jLabel7, jLabel8) == 1) {
 
         }
+        computadora();
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -548,6 +552,7 @@ public class Juego extends javax.swing.JFrame {
         if (con.jugar(jButton2, 0, 1, matriz, jLabel7, jLabel8) == 1) {
 
         }
+        computadora();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -561,6 +566,7 @@ public class Juego extends javax.swing.JFrame {
         if (con.jugar(jButton4, 1, 0, matriz, jLabel7, jLabel8) == 1) {
 
         }
+        computadora();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -577,6 +583,7 @@ public class Juego extends javax.swing.JFrame {
         if (con.jugar(jButton5, 1, 1, matriz, jLabel7, jLabel8) == 1) {
 
         }
+        computadora();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -590,6 +597,7 @@ public class Juego extends javax.swing.JFrame {
         if (con.jugar(jButton6, 1, 02, matriz, jLabel7, jLabel8) == 1) {
 
         }
+        computadora();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -603,10 +611,12 @@ public class Juego extends javax.swing.JFrame {
         if (con.jugar(jButton7, 2, 0, matriz, jLabel7, jLabel8) == 1) {
 
         }
+        computadora();
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
+
         opcion();
         //horizontal
         con.rayar(matriz, jPanel9, 3, 2, 1);
@@ -616,6 +626,7 @@ public class Juego extends javax.swing.JFrame {
         if (con.jugar(jButton8, 2, 1, matriz, jLabel7, jLabel8) == 1) {
 
         }
+        computadora();
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -631,6 +642,7 @@ public class Juego extends javax.swing.JFrame {
         if (con.jugar(jButton9, 2, 2, matriz, jLabel7, jLabel8) == 1) {
 
         }
+        computadora();
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
@@ -666,17 +678,98 @@ public class Juego extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {          
-          public void run() {
-                     try {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
                     new Juego().setVisible(true);
-            }
-            catch (IOException ex) {
+                } catch (IOException ex) {
                     Logger.getLogger(Juego.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
- }
         });
+
     }
+    public boolean gano = false;
+
+    public void computadora() {
+        if (gano == false) {
+            int p = (int) (Math.random() * (9 - 1 + 1) + 1);
+            if (p == 1) {
+                if (jButton1.getText().equals("")) {
+                    jButton1.setText("O");
+                    jButton1.setForeground(Color.blue);
+                }else{
+                    p++;
+                }
+
+            }
+            if (p == 2) {
+                if (jButton2.getText().equals("")) {
+                    jButton2.setText("O");
+                    jButton2.setForeground(Color.blue);
+                }else{
+                    p++;
+                }
+            }
+            if (p == 3) {
+                if (jButton3.getText().equals("")) {
+                    jButton3.setText("O");
+                    jButton3.setForeground(Color.blue);
+                }else{
+                    p++;
+                }
+            }
+            if (p == 4) {
+                if (jButton4.getText().equals("")) {
+                    jButton4.setText("O");
+                    jButton4.setForeground(Color.blue);
+                }else{
+                    p++;
+                }
+            }
+            if (p == 5) {
+                if (jButton5.getText().equals("")) {
+                    jButton5.setText("O");
+                    jButton5.setForeground(Color.blue);
+                }else{
+                    p++;
+                }
+            }
+            if (p == 6) {
+                if (jButton6.getText().equals("")) {
+                    jButton6.setText("O");
+                    jButton6.setForeground(Color.blue);
+                }else{
+                    p++;
+                }
+            }
+            if (p == 7) {
+                if (jButton7.getText().equals("")) {
+                    jButton7.setText("O");
+                    jButton7.setForeground(Color.blue);
+                }else{
+                    p++;
+                }
+            }
+            if (p == 8) {
+                if (jButton8.getText().equals("")) {
+                    jButton8.setText("O");
+                    jButton8.setForeground(Color.blue);
+                }else{
+                    p++;
+                }
+            }
+            if (p == 9) {
+                if (jButton9.getText().equals("")) {
+                    jButton9.setText("O");
+                    jButton9.setForeground(Color.blue);
+                }else{
+                    p++;
+                }
+            }
+        }
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel dia3;
