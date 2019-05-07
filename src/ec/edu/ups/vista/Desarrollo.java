@@ -59,41 +59,47 @@ public class Desarrollo {
             setTurno(1);
         }
     }
-    
     public int posibilidad(int matriz[][]) {
        
         //maneras de ganar horizontal
-        if (matriz[0][0] == matriz[0][1] & matriz[0][0] == matriz[0][2]) {
+        if (matriz[0][0] == matriz[0][1] & matriz[0][0] == matriz[0][2]) {    
             return 1; 
             
         }
         //hor2
         if (matriz[1][0] == matriz[1][1] & matriz[1][0] == matriz[1][2]) {
+            
             return 2;
         }
         //hor3
         if (matriz[2][0] == matriz[2][1] & matriz[2][0] == matriz[2][2]) {
+                 
             return 3;
         }
 
         //maneras de ganar vertical
         if (matriz[0][0] == matriz[1][0] & matriz[0][0] == matriz[2][0]) {
+            
             return 4;
         }
       
         if (matriz[0][1] == matriz[1][1] & matriz[0][1] == matriz[2][1]) {
+            
             return 5;
         }
     
         if (matriz[0][2] == matriz[1][2] & matriz[0][2] == matriz[2][2]) {
+            
             return 6;
         }
 
         //maneras de ganar diagonal
         if (matriz[0][0] == matriz[1][1] & matriz[0][0] == matriz[2][2]) {
+           
             return 7;
         }
         if (matriz[0][2] == matriz[1][1] & matriz[0][2] == matriz[2][0]) {
+          
             return 8;
         }
         
@@ -101,6 +107,7 @@ public class Desarrollo {
     }
     
     public int jugar(javax.swing.JButton btt, int i, int j, int matriz[][], javax.swing.JLabel jX, javax.swing.JLabel jO) {
+       
         matriz[i][j] = getTurno();
         String n = new String();
         if (getTurno() == 0) {
@@ -113,7 +120,7 @@ public class Desarrollo {
         btt.setEnabled(false);
         
         if(posibilidad(matriz)!=0){
-            JOptionPane.showMessageDialog(null, "Ganaste Reclama tu PS4: "+n);
+            JOptionPane.showMessageDialog(null, "Felicitaciones!!!\nGanaste Reclama tu PS4: "+n);
             
             if(getTurno()==1){
                 setpX(getpX()+1);

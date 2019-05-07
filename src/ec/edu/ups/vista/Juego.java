@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -447,6 +448,7 @@ public class Juego extends javax.swing.JFrame {
     //Metodo para crear un nuevo juego
 
     public void nuevo() {
+         gano2=false;
         ingresar();
         //Botones 1 a 9
         jButton1.setText("");
@@ -502,7 +504,9 @@ public class Juego extends javax.swing.JFrame {
         con.rayar(matriz, jPanel9, 8, 0, 2);
 
         if (con.jugar(jButton3, 0, 2, matriz, jLabel7, jLabel8) == 1) {
+            gano2=true;
         }
+        jButton3.setEnabled(false);
         computadora();
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -522,7 +526,7 @@ public class Juego extends javax.swing.JFrame {
         con.rayar(matriz, jPanel4, 4, 0, 0);
 
         if (con.jugar(jButton1, 0, 0, matriz, jLabel7, jLabel8) == 1) {
-
+gano2=true;
         }
         computadora();
 
@@ -537,7 +541,7 @@ public class Juego extends javax.swing.JFrame {
         con.rayar(matriz, jPanel3, 5, 0, 1);
 
         if (con.jugar(jButton2, 0, 1, matriz, jLabel7, jLabel8) == 1) {
-
+gano2=true;
         }
         computadora();
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -551,7 +555,7 @@ public class Juego extends javax.swing.JFrame {
         con.rayar(matriz, jPanel4, 4, 1, 0);
 
         if (con.jugar(jButton4, 1, 0, matriz, jLabel7, jLabel8) == 1) {
-
+gano2=true;
         }
         computadora();
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -568,7 +572,7 @@ public class Juego extends javax.swing.JFrame {
         con.rayar(matriz, jPanel3, 5, 1, 1);
 
         if (con.jugar(jButton5, 1, 1, matriz, jLabel7, jLabel8) == 1) {
-
+gano2=true;
         }
         computadora();
     }//GEN-LAST:event_jButton5ActionPerformed
@@ -582,7 +586,7 @@ public class Juego extends javax.swing.JFrame {
         con.rayar(matriz, jPanel4, 6, 1, 2);
 
         if (con.jugar(jButton6, 1, 02, matriz, jLabel7, jLabel8) == 1) {
-
+gano2=true;
         }
         computadora();
     }//GEN-LAST:event_jButton6ActionPerformed
@@ -597,7 +601,7 @@ public class Juego extends javax.swing.JFrame {
         con.rayar(matriz, jLabel9, 8, 2, 0);
 
         if (con.jugar(jButton7, 2, 0, matriz, jLabel7, jLabel8) == 1) {
-
+            gano2=true;
         }
         computadora();
     }//GEN-LAST:event_jButton7ActionPerformed
@@ -612,6 +616,7 @@ public class Juego extends javax.swing.JFrame {
         con.rayar(matriz, jPanel3, 5, 2, 1);
 
         if (con.jugar(jButton8, 2, 1, matriz, jLabel7, jLabel8) == 1) {
+            gano2=true;
 
         }
         computadora();
@@ -628,7 +633,7 @@ public class Juego extends javax.swing.JFrame {
         con.rayar(matriz, jPanel2, 6, 2, 2);
 
         if (con.jugar(jButton9, 2, 2, matriz, jLabel7, jLabel8) == 1) {
-
+gano2=true;
         }
         computadora();
     }//GEN-LAST:event_jButton9ActionPerformed
@@ -677,16 +682,18 @@ public class Juego extends javax.swing.JFrame {
         });
 
     }
-    public boolean gano = false;
+    
+    public boolean gano2 = false;
 
     public void computadora() {
-        if (gano == false) {
+        if (gano2 == false) {
             
             int p = (int) (Math.random() * (9 + 1));
             if (p == 1) {
                 if (jButton1.getText().equals("")) {
                     jButton1.setText("O");
                     jButton1.setForeground(Color.blue);
+                    jButton1.setEnabled(false);
                      
                 }
                 else{
@@ -698,6 +705,7 @@ public class Juego extends javax.swing.JFrame {
                 if (jButton2.getText().equals("")) {
                     jButton2.setText("O");
                     jButton2.setForeground(Color.blue);
+                    jButton2.setEnabled(false);
                 }else{
                     p++;
                 }
@@ -706,6 +714,7 @@ public class Juego extends javax.swing.JFrame {
                 if (jButton3.getText().equals("")) {
                     jButton3.setText("O");
                     jButton3.setForeground(Color.blue);
+                    jButton3.setEnabled(false);
                 }else{
                     p++;
                 }
@@ -714,6 +723,7 @@ public class Juego extends javax.swing.JFrame {
                 if (jButton4.getText().equals("")) {
                     jButton4.setText("O");
                     jButton4.setForeground(Color.blue);
+                    jButton4.setEnabled(false);
                 }else{
                     p++;
                 }
@@ -722,6 +732,7 @@ public class Juego extends javax.swing.JFrame {
                 if (jButton5.getText().equals("")) {
                     jButton5.setText("O");
                     jButton5.setForeground(Color.blue);
+                    jButton5.setEnabled(false);
                 }else{
                     p++;
                 }
@@ -730,6 +741,7 @@ public class Juego extends javax.swing.JFrame {
                 if (jButton6.getText().equals("")) {
                     jButton6.setText("O");
                     jButton6.setForeground(Color.blue);
+                    jButton6.setEnabled(false);
                 }else{
                     p++;
                 }
@@ -738,6 +750,7 @@ public class Juego extends javax.swing.JFrame {
                 if (jButton7.getText().equals("")) {
                     jButton7.setText("O");
                     jButton7.setForeground(Color.blue);
+                    jButton7.setEnabled(false);
                 }else{
                     p++;
                 }
@@ -746,6 +759,7 @@ public class Juego extends javax.swing.JFrame {
                 if (jButton8.getText().equals("")) {
                     jButton8.setText("O");
                     jButton8.setForeground(Color.blue);
+                    jButton8.setEnabled(false);
                 }else{
                     p++;
                 }
@@ -754,13 +768,17 @@ public class Juego extends javax.swing.JFrame {
                 if (jButton9.getText().equals("")) {
                     jButton9.setText("O");
                     jButton9.setForeground(Color.blue);
+                    jButton9.setEnabled(false);
                 }else{
                     p++;
                 }
                 
             }
             
-        } 
+        }else{
+            
+            //JOptionPane.showMessageDialog(this, "Gano Computadora");
+        }
 }
     
  
