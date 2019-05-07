@@ -108,21 +108,22 @@ public class Desarrollo {
             btt.setForeground(Color.red);
         }
         
-       // intercambiar();
+       //intercambiar();
         btt.setText(n);
         btt.setEnabled(false);
         
         if(posibilidad(matriz)!=0){
-            JOptionPane.showMessageDialog(null, "Ganaste: "+n);
+            JOptionPane.showMessageDialog(null, "Ganaste Reclama tu PS4: "+n);
+            
             if(getTurno()==1){
                 setpX(getpX()+1);
                 jX.setText(String.valueOf(getpX()));
             }
             
-            /*if(getTurno()==0){
+            if(getTurno()==0){
                 setpO(getpO()+1);
                 jO.setText(String.valueOf(getpO()));
-            }*/
+            }
             return 1;
         }
         return 0;
